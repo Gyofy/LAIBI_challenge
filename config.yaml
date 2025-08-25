@@ -1,0 +1,33 @@
+data:
+  batch_size: 2
+  crop_size:
+  - 72
+  - 220
+  - 220
+  images_dir: /workspace/MICCAI_challenge/PANTHER/PANTHER_Task1/ImagesTr
+  labels_dir: /workspace/MICCAI_challenge/PANTHER/PANTHER_Task1/LabelsTr
+  num_workers: 4
+  random_seed: 42
+  train_ratio: 0.8
+model:
+  in_channels: 1
+  name: segresnet
+  out_channels: 2
+  params:
+    bilinear: false
+training:
+  checkpoint_path: null
+  epochs: 1000
+  loss: dice
+  optimizer:
+    lr: 0.0001
+    type: adam
+    weight_decay: 1.0e-05
+  resume: false
+  save_dir: ./experiments
+  save_freq: 10
+  scheduler:
+    params: {}
+    type: cosine
+    use: true
+  val_freq: 1
